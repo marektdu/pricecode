@@ -1,1 +1,2 @@
 Preise hochladen
+Vergleich unter Handelsketten
