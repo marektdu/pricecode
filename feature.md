@@ -1,2 +1,4 @@
 Preise hochladen
+
 Vergleich unter Handelsketten
+Preise im umliegende Geschäften
