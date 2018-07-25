@@ -13,3 +13,8 @@ s1.stock.append(p3)
 s2 = Shop("Spaetie")
 p4= Product ("Wasser",2.5, 3057640182693)
 s2.stock.append(p4)
+
+s3 = Shop("Buchladen")
+
+all_shops =[s1,s2,s3]
+
