@@ -13,9 +13,12 @@ class TestStockMethods(unittest.TestCase):
         p2 = Product(product_name="Milch", price=1.35, barCode=None)
         p3 = Product("Wasser", 1.5, 3057640182693)
 
-        s1.stock.append(p1)
-        s1.stock.append(p2)
-        s1.stock.append(p3)
+        #  s1.stock = []
+
+        s1.stock.append(p1)          #  s1.stock = [p1]
+        s1.stock.append(p2)        #  s1.stock = [p1,p2]
+        s1.stock.append(p3)         #  s1.stock = [p1,p2,p3]
+
 
         self.assertEqual(s1.in_stock(12345678),None)
         self.assertEqual((s1.in_stock(3057640182693)).product_name, 'Wasser')
@@ -25,6 +28,9 @@ class Test_comporator(unittest.TestCase):
 
     def test_comporator(self):
         cc = Comparator.Comparator()
+
+        val1 = Product(product_name="bier", price=0.59 , barCode=None)
+        val2 = Product(product_name="bier", price=1.59 , barCode=None)
 
         self.assertEqual(cc.add(1,1),2)
 
