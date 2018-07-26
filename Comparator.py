@@ -16,7 +16,7 @@ class Comparator ():
 
         for shop in shops:
 
-            distance = (  (shop.location[0] - your_location[0])**2 + (shop.location[1] - your_location[1])**2 )**.5
+            distance = (  (shop.location_x - your_location[0])**2 + (shop.location_y - your_location[1])**2 )**.5
 
             if distance < desired_range:
 
