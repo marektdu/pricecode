@@ -2,10 +2,10 @@ from Product import Product
 from Shop import Shop
 
 #Shops
-s1 = Shop("Aldi")
-s2 = Shop("Real")
-s3 = Shop("Netto")
-s4 = Shop("Edeka")
+s1 = Shop("Aldi",(240,230))
+s2 = Shop("Real",(120,330))
+s3 = Shop("Netto",(140,280))
+s4 = Shop("Edeka",(200,189))
 
 #Produkten
 #Aldi

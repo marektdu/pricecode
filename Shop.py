@@ -1,8 +1,9 @@
 class Shop():
 
-    def __init__(self, shop_name, location=None):
+    def __init__(self, shop_name, location=(None,None)):
         self.shop_name = shop_name
-        self.location = location
+        self.location_x = location[0]
+        self.location_y = location[1]
         self.stock = []
 
     def in_stock(self, barcode):
