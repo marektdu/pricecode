@@ -1,5 +1,5 @@
 import unittest
-
+import Comparator
 from Product import Product
 from Shop import Shop
 
@@ -19,6 +19,14 @@ class TestStockMethods(unittest.TestCase):
 
         self.assertEqual(s1.in_stock(12345678),None)
         self.assertEqual((s1.in_stock(3057640182693)).product_name, 'Wasser')
+
+
+class Test_comporator(unittest.TestCase):
+
+    def test_comporator(self):
+        cc = Comparator.Comparator()
+
+        self.assertEqual(cc.add(1,1),2)
 
 
 

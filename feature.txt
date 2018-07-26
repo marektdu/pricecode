@@ -1,4 +1,19 @@
+* comparator class erstellen
+
+** compare prices -Uygar-Ozan
+
+**get all shops in range- Batuhan-Kubilay
+
+**get all available -Makbule-Elifnaz-Sıla
+
+**more products more shops (with locations) - Başak-Tansu-İlker
+
+###############################
+
 Preise hochladen
 Vergleich unter Handelsketten
 Preise im umliegende Gesch�ften
 Vergleich der Preise
+
+
+
