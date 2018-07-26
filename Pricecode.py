@@ -1,20 +1,43 @@
 from Product import Product
 from Shop import Shop
 
-p1 = Product (product_name="Butter",price=10.0,barCode=None)
-p2 = Product (product_name="Milch",price=1.35,barCode=None)
-p3= Product ("Wasser",1.5, 3057640182693)
 
-s1 = Shop(shop_name= "Milk Shop")
-s1.stock.append(p1)
-s1.stock.append(p2)
-s1.stock.append(p3)
+#Produkten
+#Aldi
+p1.1 = Product (product_name="Butter", price=10.0, barCode=None)
+p2.1 = Product (product_name="Milch", price=0.61, barCode=None)
+p3.1 = Product ("Wasser", 1.5, 3057640182693)
+p4.1 = Product ("Brot", 2.5, 3057640182693)
 
-s2 = Shop("Spaetie")
-p4= Product ("Wasser",2.5, 3057640182693)
-s2.stock.append(p4)
+#Real
+p1.2 = Product ("Butter", 9.8, None)
+p2.2 = Product ("Milch", 0.65, None)
+p3.2 = Product ("Wasser", 1.5, 3057640182693)
+p4.2 = Product ("Brot", 2.5, 3057640182693)
 
-s3 = Shop("Buchladen")
+#Netto
+p1.3 = Product ("Butter", 9.5, None)
+p2.3 = Product ("Milch", 0.62, None)
+p3.3 = Product ("Wasser",1.5, 3057640182693)
+p4.3 = Product ("Brot",2.5, 3057640182693)
 
-all_shops =[s1,s2,s3]
+#Edeka
+p1.4 = Product ("Butter", 9.4, None)
+p2.4 = Product ("Milch", 0.72, None)
+p3.4 = Product ("Wasser",1.5, 3057640182693)
+p4.4 = Product ("Brot",2.5, 3057640182693)
+
+#Stock Append
+s1.stock.append(p1.1)
+s1.stock.append(p2.1)
+s1.stock.append(p3.1)
+s2.stock.append(p4.2)
+
+#Shops
+s1 = Shop("Aldi",)
+s2 = Shop("Real")
+s3 = Shop("Netto")
+s4 = Shop("Edeka")
+
+all_shops =[s1,s2,s3,s4]
 
