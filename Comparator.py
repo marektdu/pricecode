@@ -43,10 +43,10 @@ class Comparator ():
         #product_shop_list [ (product_y, shop_z),(product_x, shop_j), ...]
 
         product_shop_list = []
-        product_found = product_shop_list[0][0]
-        shop_found    = product_shop_list[0][1]
+        product_found = product_list[0][0]
+        shop_found    = product_list[0][1]
         
-        for product, shop in product_shop_list:
+        for product, shop in product_list:
             if product_found.price > product.price:
                 product_found = product
                 shop_found    = shop

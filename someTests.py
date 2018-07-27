@@ -18,6 +18,8 @@ class TestStockMethods(unittest.TestCase):
         p3 = Product("Wasser", 1.5, 3057640182693)
         p4 = Product("Brot", 2.5, 3057640182693)
 
+
+
         s1.stock.append(p1)
         s1.stock.append(p2)
         s1.stock.append(p3)
@@ -32,6 +34,8 @@ class TestStockMethods(unittest.TestCase):
         s2.stock.append(p6)
         s2.stock.append(p7)
         s2.stock.append(p8)
+
+        self.products = [p1, p2, p3, p4, p5, p6, p7, p8]
 
         self.shops = [s1, s2]
 
@@ -50,6 +54,19 @@ class TestStockMethods(unittest.TestCase):
 
         shop_list = cc.shops_in_range(desired_range=100, your_location=(0,0),shops=self.shops)
         self.assertEqual(shop_list[0].shop_name, "Aldi")
+
+    def test_priceless(self):
+
+        self.define_test_data()
+        my_product_list = [(self.products[0],self.shops[0]),(self.products[4],self.shops[1]) ]
+        cc = Comparator.Comparator()
+        #import pdb; pdb.set_trace()
+        result = cc.get_priceless_prduct(my_product_list)
+
+        self.assertEqual(result[0].price, 9.8)
+
+
+
 
 class Test_comporator(unittest.TestCase):
 
