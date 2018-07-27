@@ -1,9 +1,42 @@
+from Shop import Shop
+
 class Comparator ():
 
     def __init__(self):
-        pass
+        self.all_shops = []
 
-    #implement functios here
+
+    def in_stock(self, barcode, all_shops_in_range=[]):
+
+        products_found = []
+
+        for shop in all_shops_in_range:
+            for product in shop.stock:
+            #  print (pp.product_name)
+                if barcode == product.barCode:
+                    products_found.append((product,shop))
+
+        return products_found
+
+    @staticmethod
+    def distance(point_1,point_2):
+        distance = (( point_1[0]- point_2[0]) ** 2 + (point_1[1]- point_2[1]) ** 2) ** .5
+        return distance
+
+    def shops_in_range(self,desired_range, your_location,shops):
+
+        shops_in_range = []
+
+        for shop in shops:
+
+            distance = self.distance(your_location, shop.location)
+
+            if distance < desired_range:
+
+                shops_in_range.append(shop)
+
+        return shops_in_range
+
 
     def get_priceless_prduct(self, product_list):
 
