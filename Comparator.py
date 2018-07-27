@@ -6,12 +6,7 @@ class Comparator ():
         self.all_shops = []
 
 
-    def in_stock(self, barcode):
-
-        s1 = Shop("Aldi" )
-        s2 = Shop("Real")
-
-        all_shops_in_range = [s1 , s2]
+    def in_stock(self, barcode, all_shops_in_range=[]):
 
         products_found = []
 
