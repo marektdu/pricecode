@@ -33,8 +33,11 @@ class TestStockMethods(unittest.TestCase):
         s2.stock.append(p7)
         s2.stock.append(p8)
 
-        self.assertEqual(s1.all_shops_in_range(12345678),None)
-        self.assertEqual((s1.all_shops_in_range(3057640182693)).product_name, 'Wasser')
+        shops = [s1,s2]
+
+        cc = Comparator.Comparator()
+        self.assertEqual(cc.in_stock(12345678,shops),[])
+        self.assertEqual(cc.in_stock(3057640182693,shops)[0][0].product_name, 'Wasser')
 
 
 
