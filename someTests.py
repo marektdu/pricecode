@@ -5,6 +5,9 @@ from Shop import Shop
 
 class TestStockMethods(unittest.TestCase):
 
+    def test_distance(self):
+        self.assertTrue(False)
+
     def test_water_in_stock(self):
 
         s1 = Shop("Aldi")
