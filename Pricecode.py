@@ -1,6 +1,6 @@
 from Product import Product
 from Shop import Shop
-
+import Comparator
 
 def define_shops():
     """Shops"""
@@ -19,7 +19,7 @@ def fill_shop_stocks(shops):
     #Aldi
     shops[0].stock.append(Product(product_name="Butter", price=10.0, barCode=305764015599))
     shops[0].stock.append(Product(product_name="Milch", price=0.61, barCode=305764011155))
-    shops[0].stock.append(Product("Wasser", 1.5, 3057640181432))
+    shops[0].stock.append(Product("Wasser", 1.5, 3057640181559))
     shops[0].stock.append(Product("Brot", 2.5, 305764018546))
     shops[0].stock.append(Product("Kaffee", 3.5, 305764011475))
     shops[0].stock.append(Product("Tee", 1.2, 3057640188965))
@@ -43,7 +43,7 @@ def fill_shop_stocks(shops):
     #Netto
     shops[2].stock.append(Product("Butter", 9.5, 305764016644))
     shops[2].stock.append(Product("Milch", 0.62, 305764011126))
-    shops[2].stock.append(Product("Wasser", 0.50, 3057640181473))
+    shops[2].stock.append(Product("Wasser", 0.50, 3057640181559))
     shops[2].stock.append(Product("Brot", 0.15, 3057640181796))
     shops[2].stock.append(Product("Kaffee", 1.5, 3057640183216))
     shops[2].stock.append(Product("Tee", 1.6, 3057640181726))
@@ -55,7 +55,7 @@ def fill_shop_stocks(shops):
     #Edeka
     shops[3].stock.append(Product("Butter", 9.4, 305764019988))
     shops[3].stock.append(Product("Milch", 0.72, 305764011477))
-    shops[3].stock.append(Product("Wasser",2.0, 3057640184999))
+    shops[3].stock.append(Product("Wasser",2.0, 3057640181559))
     shops[3].stock.append(Product("Brot",2.3, 3057640181144))
     shops[3].stock.append(Product("Kaffee", 4.8, 3057640182263))
     shops[3].stock.append(Product("Tee", 3.6, 3057640181785))
@@ -67,9 +67,27 @@ def fill_shop_stocks(shops):
 
 def main():
 
+
+    # set up
     all_shops = define_shops()
     fill_shop_stocks(all_shops)
 
+    cc = Comparator.Comparator()
+
+    my_pos = (150,210)
+
+    # I want water  within 50 range - give me the cheapest price
+
+    shops_in_range = cc.shops_in_range(desired_range=70,your_location=my_pos,shops=all_shops)
+
+    available_products = cc.in_stock(barcode=3057640181559, all_shops_in_range=shops_in_range)
+    print("available_products", available_products)
+
+
+    #best_offer
+    best_product,best_shop = cc.get_priceless_prduct(product_list=available_products)
+
+    print ("get you ", best_product.product_name , "at" , best_shop.shop_name)
 
 if __name__ == """__main__""":
     main()
