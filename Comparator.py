@@ -19,7 +19,7 @@ class Comparator ():
         return products_found
 
     @staticmethod
-    def distance(self,point_1,point_2):
+    def distance(point_1,point_2):
         distance = (( point_1[0]- point_2[0]) ** 2 + (point_1[1]- point_2[1]) ** 2) ** .5
         return distance
 
@@ -29,7 +29,7 @@ class Comparator ():
 
         for shop in shops:
 
-            distance = ((shop.location_x - your_location[0]) ** 2 + (shop.location_y - your_location[1]) ** 2) ** .5
+            distance = self.distance(your_location, shop.location)
 
             if distance < desired_range:
 

@@ -6,14 +6,14 @@ from Shop import Shop
 class TestStockMethods(unittest.TestCase):
 
     def test_distance(self):
-        self.assertTrue(False)
+        self.assertEqual(Comparator.Comparator.distance((1,1),(1,1)),0)
+        self.assertAlmostEqual(Comparator.Comparator.distance((0,0), (1, 1)), 1.4142,4)
 
-    def test_water_in_stock(self):
+    def define_test_data(self):
+        s1 = Shop("Aldi", (10,10))
+        s2 = Shop("Real", (200,200))
 
-        s1 = Shop("Aldi")
-        s2 = Shop("Real")
-
-        p1= Product(product_name="Butter", price=10.0, barCode=None)
+        p1 = Product(product_name="Butter", price=10.0, barCode=None)
         p2 = Product(product_name="Milch", price=0.61, barCode=None)
         p3 = Product("Wasser", 1.5, 3057640182693)
         p4 = Product("Brot", 2.5, 3057640182693)
@@ -33,13 +33,23 @@ class TestStockMethods(unittest.TestCase):
         s2.stock.append(p7)
         s2.stock.append(p8)
 
-        shops = [s1,s2]
+        self.shops = [s1, s2]
+
+    def test_water_in_stock(self):
+
+        self.define_test_data()
 
         cc = Comparator.Comparator()
-        self.assertEqual(cc.in_stock(12345678,shops),[])
-        self.assertEqual(cc.in_stock(3057640182693,shops)[0][0].product_name, 'Wasser')
+        self.assertEqual(cc.in_stock(12345678,self.shops),[])
+        self.assertEqual(cc.in_stock(3057640182693,self.shops)[0][0].product_name, 'Wasser')
 
+    def test_shops_in_range(self):
+        self.define_test_data()
 
+        cc = Comparator.Comparator()
+
+        shop_list = cc.shops_in_range(desired_range=100, your_location=(0,0),shops=self.shops)
+        self.assertEqual(shop_list[0].shop_name, "Aldi")
 
 class Test_comporator(unittest.TestCase):
 
